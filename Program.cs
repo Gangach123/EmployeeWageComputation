@@ -8,18 +8,19 @@ namespace EmployeeWageComputation
 {
     internal class EmployeeWageComputation
     {
-        static void Main1(string[] args)
+        static void Main(string[] args)
         {
             const int IS_FULL_TIME = 1;
             const int IS_PART_TIME = 2;
             const int IS_ABSENT = 0;
-            const int WAGEPERHOUR = 20;
-            const int TOTALWORKINGDAYS = 20;
-
+            const int WAGE_PER_HOUR = 20;
+            const int TOTAL_WORKING_DAYS = 20;
+            const int MAX_HRS_WORKED = 100;
             int workingHours = 8;
             int totalWorkingHrs = 0;
+            int workingDays = 0;
 
-            for (int i = 0; i < TOTALWORKINGDAYS; i++)
+            while (workingDays < TOTAL_WORKING_DAYS && totalWorkingHrs < MAX_HRS_WORKED)
             {
                 Random random = new Random();
                 int employeeCheck = random.Next(0, 3);
@@ -27,22 +28,25 @@ namespace EmployeeWageComputation
                 {
                     
                     case IS_PART_TIME:
-                        Console.WriteLine("Employee is part-time working");
+                        Console.WriteLine("Employee is working for parttime");
                         workingHours = 8;
                         break;
+
                     case IS_FULL_TIME:
-                        Console.WriteLine("Employee is present");
+                        Console.WriteLine("Employee is working for fulltime");
                         workingHours = 8;
                         break;
+
                     default:
                         Console.WriteLine("Employee is absent");
                         workingHours = 0;
                         break;
                 }
                 totalWorkingHrs = totalWorkingHrs + workingHours;
+                workingDays++;
             }
-            int empWage = totalWorkingHrs * WAGEPERHOUR;
-            Console.WriteLine($"Employee earning money {empWage}");
+            int empWage = totalWorkingHrs * WAGE_PER_HOUR;
+            Console.WriteLine($"Employee wage {empWage}");
             Console.ReadLine();
 
         }
