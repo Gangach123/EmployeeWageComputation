@@ -28,18 +28,21 @@ namespace EmployeeWageComputation
                 {
                     
                     case IS_PART_TIME:
-                        Console.WriteLine("Employee is working for parttime");
+                        //Console.WriteLine("Employee is working for parttime");
                         workingHours = 8;
+                        return workingHours;
                         break;
 
                     case IS_FULL_TIME:
-                        Console.WriteLine("Employee is working for fulltime");
+                        //Console.WriteLine("Employee is working for fulltime");
                         workingHours = 8;
+                        return workingHours;
                         break;
 
                     default:
-                        Console.WriteLine("Employee is absent");
+                        //Console.WriteLine("Employee is absent");
                         workingHours = 0;
+                        return workingHours;
                         break;
                 }
                 totalWorkingHrs = totalWorkingHrs + workingHours;
