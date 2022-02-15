@@ -20,38 +20,60 @@ namespace EmployeeWageComputation
             int totalWorkingHrs = 0;
             int workingDays = 0;
 
-            while (workingDays < TOTAL_WORKING_DAYS && totalWorkingHrs < MAX_HRS_WORKED)
-            {
                 Random random = new Random();
                 int employeeCheck = random.Next(0, 3);
                 switch (employeeCheck)
                 {
                     
                     case IS_PART_TIME:
-                        //Console.WriteLine("Employee is working for parttime");
+                        Console.WriteLine("Employee is working for parttime");
                         workingHours = 8;
-                        return workingHours;
                         break;
 
                     case IS_FULL_TIME:
-                        //Console.WriteLine("Employee is working for fulltime");
+                        Console.WriteLine("Employee is working for fulltime");
                         workingHours = 8;
-                        return workingHours;
                         break;
 
                     default:
-                        //Console.WriteLine("Employee is absent");
+                        Console.WriteLine("Employee is absent");
                         workingHours = 0;
-                        return workingHours;
                         break;
                 }
-                totalWorkingHrs = totalWorkingHrs + workingHours;
-                workingDays++;
+          
             }
-            int empWage = totalWorkingHrs * WAGE_PER_HOUR;
-            Console.WriteLine($"Employee wage {empWage}");
+            static void Main1(string[] args)
+            {
+            const int WAGEPERHOUR = 20;
+            const int TOTALWORKINGDAYS = 20;
+            const int MAXHRSWORKED = 100;
+
+
+            int workingHrs = 0;
+            int totalWorkingHrs = 0;
+            int workingDays = 0;
+            int totalWage = 0;
+            int[] dailyWageArray = new int[20];
+            int[] totalWageArray = new int[20];
+
+            while (workingDays < TOTALWORKINGDAYS && totalWorkingHrs < MAXHRSWORKED)
+            {
+                workingHrs = Main2();
+                dailyWageArray[workingDays] = WAGEPERHOUR * workingHrs;
+                totalWage = totalWage + WAGEPERHOUR * workingHrs;
+                totalWageArray[workingDays] = totalWage;
+                totalWorkingHrs = totalWorkingHrs + workingHrs;
+                workingDays++;
+
+            }
+            int empWage = totalWorkingHrs * WAGEPERHOUR;
+            Console.WriteLine($"Employee earned Money {empWage}");
+            Console.WriteLine(String.Join(" ", dailyWageArray));
+            Console.WriteLine(String.Join(" ", totalWageArray));
             Console.ReadLine();
 
         }
+
     }
+              
 }
