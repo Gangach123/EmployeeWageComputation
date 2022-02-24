@@ -8,7 +8,7 @@ namespace EmployeeWageComputation
 {
     internal class EmployeeWageComputation
     {
-        static void Main(string[] args)
+        static int WorkingHours()
         {
             const int IS_FULL_TIME = 1;
             const int IS_PART_TIME = 2;
@@ -42,7 +42,7 @@ namespace EmployeeWageComputation
                 }
           
             }
-            static void Main1(string[] args)
+            static void Main(string[] args)
             {
             const int WAGEPERHOUR = 20;
             const int TOTALWORKINGDAYS = 20;
@@ -58,7 +58,7 @@ namespace EmployeeWageComputation
 
             while (workingDays < TOTALWORKINGDAYS && totalWorkingHrs < MAXHRSWORKED)
             {
-                workingHrs = Main2();
+                workingHrs = WorkingHours();
                 dailyWageArray[workingDays] = WAGEPERHOUR * workingHrs;
                 totalWage = totalWage + WAGEPERHOUR * workingHrs;
                 totalWageArray[workingDays] = totalWage;
