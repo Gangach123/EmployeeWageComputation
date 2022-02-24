@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmpWage_OOPS
 {
-    class EmployeeWageBuilder
+    class EmployeeWageBuilder : IEmployeeWage
     {
         int count = 0;
 
@@ -73,8 +73,5 @@ namespace EmpWage_OOPS
             }
             return empTotalWage;
         }
-
-
-
     }
 }
