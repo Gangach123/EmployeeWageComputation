@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +23,22 @@ namespace EmployeeDailyWage
 
             Random random = new Random();
             int empCheck = random.Next(0, 2);
-            if (empCheck == IS_FULL_TIME)
-                WORKING_HOURS = 8;
+           
+             if (empCheck == IS_PART_TIME)
+            {
+                Console.WriteLine("Employee is doing parttime.");
+                empHrs = 4;
+            }
+            else if (empCheck == IS_FULL_TIME)
+            {
+                Console.WriteLine("Employee is doing fulltime");
+                empHrs = 8;
+            }
+            else
+            {
+                Console.WriteLine("Employee is absent to the work");
+                empHrs = 0;
+            }
             
             // empHrs = 0;
             empWage = WORKING_HOURS * EMP_RATE_PER_HOUR;
